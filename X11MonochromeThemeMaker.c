@@ -13,7 +13,7 @@
 
 #include <stdio.h>
 
-void CMYKtoRGB(double cyan, double magenta, double yellow, double key, int *RGB_Output)
+static void CMYKtoRGB(double cyan, double magenta, double yellow, double key, int *RGB_Output)
 {
     double red, green, blue;
 
@@ -21,9 +21,9 @@ void CMYKtoRGB(double cyan, double magenta, double yellow, double key, int *RGB_
     green = 255 * (1 - magenta) * (1 - key);
     blue = 255 * (1 - yellow) * (1 - key);
 
-    RGB_Output[0] = red;
-    RGB_Output[1] = green;
-    RGB_Output[2] = blue;
+    RGB_Output[0] = (int)red;
+    RGB_Output[1] = (int)green;
+    RGB_Output[2] = (int)blue;
 }
 
 int main()
